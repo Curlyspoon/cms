@@ -35,7 +35,7 @@ class CurlyspoonServiceProvider extends ServiceProvider
     protected function registerBladeDirective()
     {
         Blade::directive('element', function ($expression) {
-            return "<?php echo app(\Curlyspoon\Cms\Contracts\ElementManager::class)->render($expression); ?>";
+            return "<?php echo app(\Curlyspoon\Core\Contracts\ElementManager::class)->render($expression); ?>";
         });
     }
 
