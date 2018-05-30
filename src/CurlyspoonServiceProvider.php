@@ -2,13 +2,13 @@
 
 namespace Curlyspoon\Cms;
 
-use Curlyspoon\Cms\Contracts\NormalizerManager as NormalizerManagerConract;
-use Curlyspoon\Cms\Managers\NormalizerManager;
+use ReflectionClass;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 use Curlyspoon\Core\Managers\ElementManager;
+use Curlyspoon\Cms\Managers\NormalizerManager;
 use Curlyspoon\Core\Contracts\ElementManager as ElementManagerContract;
-use ReflectionClass;
+use Curlyspoon\Cms\Contracts\NormalizerManager as NormalizerManagerConract;
 
 class CurlyspoonServiceProvider extends ServiceProvider
 {
@@ -41,19 +41,19 @@ class CurlyspoonServiceProvider extends ServiceProvider
 
     protected function loadElements()
     {
-        if(!$this->app['config']->get('curlyspoon.autoload')) {
+        if (! $this->app['config']->get('curlyspoon.autoload')) {
             return;
         }
 
         $namespace = $this->app['config']->get('curlyspoon.autoload.namespace');
 
-        foreach (glob($this->app['config']->get('curlyspoon.autoload.directory') . '/*.php') as $filename) {
-            $classname = $namespace . '\\' . pathinfo($filename, PATHINFO_FILENAME);
+        foreach (glob($this->app['config']->get('curlyspoon.autoload.directory').'/*.php') as $filename) {
+            $classname = $namespace.'\\'.pathinfo($filename, PATHINFO_FILENAME);
 
             if (class_exists($classname)) {
                 $reflection = new ReflectionClass($classname);
 
-                if (!$reflection->isAbstract() && $reflection->hasProperty('name')) {
+                if (! $reflection->isAbstract() && $reflection->hasProperty('name')) {
                     $this->app->make(ElementManagerContract::class)->register($reflection->getDefaultProperties()['name'], $classname);
                 }
             }
