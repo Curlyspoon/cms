@@ -1,0 +1,40 @@
+{
+    "name": "curlyspoon/cms",
+    "description": "",
+    "keywords": ["curlyspoon", "cms"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Tom Witkowski",
+            "email": "dev.gummibeer@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.1.3",
+        "curlyspoon/core": "^1.3",
+        "illuminate/support": "5.6.*",
+        "illuminate/view": "5.6.*",
+        "symfony/options-resolver": "^4.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Curlyspoon\\Cms\\": "src"
+        }
+    },
+    "config": {
+        "preferred-install": "dist",
+        "sort-packages": true,
+        "optimize-autoloader": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Curlyspoon\\Cms\\CurlyspoonServiceProvider"
+            ],
+            "aliases": {
+                "ElementManager": "Curlyspoon\\Cms\\Facades\\ElementManager"
+            }
+        }
+    }
+}
