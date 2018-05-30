@@ -2,9 +2,12 @@
 
 namespace Curlyspoon\Cms;
 
+use Curlyspoon\Cms\Contracts\NormalizerManager as NormalizerManagerConract;
+use Curlyspoon\Cms\Managers\NormalizerManager;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 use Curlyspoon\Core\Managers\ElementManager;
+use Curlyspoon\Core\Contracts\ElementManager as ElementManagerContract;
 use ReflectionClass;
 
 class CurlyspoonServiceProvider extends ServiceProvider
@@ -13,8 +16,12 @@ class CurlyspoonServiceProvider extends ServiceProvider
     {
         $this->mergeConfigFrom(realpath(__DIR__.'/../config/curlyspoon.php'), 'curlyspoon');
 
-        $this->app->singleton('curlyspoon.manager.element', function (): ElementManager {
+        $this->app->singleton(ElementManagerContract::class, function (): ElementManager {
             return new ElementManager();
+        });
+
+        $this->app->singleton(NormalizerManagerConract::class, function (): NormalizerManager {
+            return new NormalizerManager();
         });
 
         $this->registerBladeDirective();
