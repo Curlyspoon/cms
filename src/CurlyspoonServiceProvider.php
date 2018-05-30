@@ -19,8 +19,8 @@ class CurlyspoonServiceProvider extends ServiceProvider
 
     protected function registerBladeDirective()
     {
-        Blade::directive('element', function (string $name, array $options = []) {
-            return "<?php echo app('curlyspoon.manager.element')->render($name, $options); ?>";
+        Blade::directive('element', function ($expression) {
+            return "<?php echo app('curlyspoon.manager.element')->render($expression); ?>";
         });
     }
 }
