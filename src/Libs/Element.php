@@ -2,10 +2,10 @@
 
 namespace Curlyspoon\Cms\Libs;
 
-use Curlyspoon\Cms\Contracts\NormalizerManager as NormalizerManagerContract;
-use Curlyspoon\Core\Elements\BladeElement;
 use Illuminate\Container\Container;
+use Curlyspoon\Core\Elements\BladeElement;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Curlyspoon\Cms\Contracts\NormalizerManager as NormalizerManagerContract;
 
 abstract class Element extends BladeElement
 {
@@ -46,6 +46,5 @@ abstract class Element extends BladeElement
         }
 
         return $resolver;
-
     }
 }
