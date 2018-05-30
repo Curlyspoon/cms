@@ -2,9 +2,9 @@
 
 namespace Curlyspoon\Cms;
 
-use Curlyspoon\Core\Managers\ElementManager;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
+use Curlyspoon\Core\Managers\ElementManager;
 
 class CurlyspoonServiceProvider extends ServiceProvider
 {
