@@ -35,7 +35,7 @@ class CurlyspoonServiceProvider extends ServiceProvider
     protected function registerBladeDirective()
     {
         Blade::directive('element', function ($expression) {
-            return "<?php echo app('curlyspoon.manager.element')->render($expression); ?>";
+            return "<?php echo app(\Curlyspoon\Cms\Contracts\NormalizerManager::class)->render($expression); ?>";
         });
     }
 
@@ -54,7 +54,7 @@ class CurlyspoonServiceProvider extends ServiceProvider
                 $reflection = new ReflectionClass($classname);
 
                 if (!$reflection->isAbstract() && $reflection->hasProperty('name')) {
-                    $this->app->make('curlyspoon.manager.element')->register($reflection->getDefaultProperties()['name'], $classname);
+                    $this->app->make(ElementManagerContract::class)->register($reflection->getDefaultProperties()['name'], $classname);
                 }
             }
         }
