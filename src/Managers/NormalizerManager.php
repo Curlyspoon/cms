@@ -10,7 +10,7 @@ class NormalizerManager implements NormalizerManagerContract
 {
     protected $normalizers = [];
 
-    public function register(string $name, Closure $normalizer): self
+    public function register(string $name, Closure $normalizer): NormalizerManagerContract
     {
         $this->normalizers[$name] = $normalizer;
 
