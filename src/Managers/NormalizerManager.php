@@ -17,7 +17,7 @@ class NormalizerManager implements NormalizerManagerContract
         return $this;
     }
 
-    public function normalize(string $name): Closure
+    public function normalizer(string $name): Closure
     {
         if (! isset($this->normalizers[$name])) {
             throw new InvalidArgumentException(sprintf('No normalizer with name [%s] found.', $name));

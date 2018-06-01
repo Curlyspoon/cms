@@ -8,7 +8,7 @@ interface NormalizerManager
 {
     public function register(string $name, Closure $normalizer): self;
 
-    public function normalize(string $name): Closure;
+    public function normalizer(string $name): Closure;
 
     public function getNormalizers(): array;
 }

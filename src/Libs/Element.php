@@ -38,7 +38,7 @@ abstract class Element extends BladeElement
         }
 
         foreach ($this->normalizers as $option => $normalizer) {
-            $resolver->setNormalizer($option, Container::getInstance()->make(NormalizerManagerContract::class)->normalize($normalizer));
+            $resolver->setNormalizer($option, Container::getInstance()->make(NormalizerManagerContract::class)->normalizer($normalizer));
         }
 
         if (method_exists($this, 'configureOptions')) {
