@@ -2,9 +2,9 @@
 
 namespace Curlyspoon\Cms\Libs;
 
-use Curlyspoon\NestedOptionsResolver\OptionsResolver as CurlyspoonOptionsResolver;
 use Illuminate\Container\Container;
 use Curlyspoon\Cms\Contracts\NormalizerManager as NormalizerManagerContract;
+use Curlyspoon\NestedOptionsResolver\OptionsResolver as CurlyspoonOptionsResolver;
 
 class OptionsResolver extends CurlyspoonOptionsResolver
 {
