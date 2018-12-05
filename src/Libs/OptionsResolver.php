@@ -23,7 +23,7 @@ class OptionsResolver extends CurlyspoonOptionsResolver
         return $resolver;
     }
 
-    protected function loadConfigNormalizers(): OptionsResolver
+    protected function loadConfigNormalizers(array $config): OptionsResolver
     {
         if (! empty($config['normalizers'])) {
             foreach ($config['normalizers'] as $option => $normalizer) {
