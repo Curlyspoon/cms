@@ -2,6 +2,7 @@
 
 namespace Curlyspoon\Cms\Libs;
 
+use Curlyspoon\NestedOptionsResolver\OptionsResolver;
 use Illuminate\Container\Container;
 use Curlyspoon\Core\Elements\BladeElement;
 use Symfony\Component\OptionsResolver\OptionsResolver as SymfonyOptionsResolver;
