@@ -4,6 +4,7 @@ namespace Curlyspoon\Cms\Libs;
 
 use Illuminate\Container\Container;
 use Curlyspoon\Core\Elements\BladeElement;
+use Curlyspoon\NestedOptionsResolver\OptionsResolver;
 use Symfony\Component\OptionsResolver\OptionsResolver as SymfonyOptionsResolver;
 
 abstract class Element extends BladeElement
