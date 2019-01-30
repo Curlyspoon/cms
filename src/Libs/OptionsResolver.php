@@ -12,6 +12,14 @@ class OptionsResolver extends CurlyspoonOptionsResolver
     {
         $resolver = new static();
 
+        $resolver->setDefined(array_merge(
+            $config['defaults'],
+            $config['required'],
+            array_keys($config['types']),
+            array_keys($config['values']),
+            array_keys($config['normalizers'])
+        ));
+
         $resolver
             ->loadConfigDefaults($config)
             ->loadConfigRequired($config)
