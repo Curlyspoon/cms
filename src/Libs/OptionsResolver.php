@@ -2,6 +2,7 @@
 
 namespace Curlyspoon\Cms\Libs;
 
+use Illuminate\Support\Arr;
 use Illuminate\Container\Container;
 use Curlyspoon\Cms\Contracts\NormalizerManager as NormalizerManagerContract;
 use Curlyspoon\NestedOptionsResolver\OptionsResolver as CurlyspoonOptionsResolver;
@@ -13,11 +14,11 @@ class OptionsResolver extends CurlyspoonOptionsResolver
         $resolver = new static();
 
         $resolver->setDefined(array_merge(
-            $config['defaults'],
-            $config['required'],
-            array_keys($config['types']),
-            array_keys($config['values']),
-            array_keys($config['normalizers'])
+            Arr::get($config, 'defaults', []),
+            Arr::get($config, 'required', []),
+            array_keys(Arr::get($config, 'types', [])),
+            array_keys(Arr::get($config, 'values', [])),
+            array_keys(Arr::get($config, 'normalizers', []))
         ));
 
         $resolver
