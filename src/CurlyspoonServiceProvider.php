@@ -38,10 +38,10 @@ class CurlyspoonServiceProvider extends ServiceProvider
             return "<?php echo app(\Curlyspoon\Core\Contracts\ElementManager::class)->render($expression); ?>";
         });
 
-        Blade::directive('spaceless', function() {
+        Blade::directive('spaceless', function () {
             return '<?php ob_start(); ?>';
         });
-        Blade::directive('endspaceless', function() {
+        Blade::directive('endspaceless', function () {
             return "<?php echo trim(preg_replace('/>\\s+</', '><', ob_get_clean())); ?>";
         });
     }
