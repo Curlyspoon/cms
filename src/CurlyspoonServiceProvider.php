@@ -37,6 +37,13 @@ class CurlyspoonServiceProvider extends ServiceProvider
         Blade::directive('element', function ($expression) {
             return "<?php echo app(\Curlyspoon\Core\Contracts\ElementManager::class)->render($expression); ?>";
         });
+
+        Blade::directive('spaceless', function() {
+            return '<?php ob_start(); ?>';
+        });
+        Blade::directive('endspaceless', function() {
+            return "<?php echo trim(preg_replace('/>\\s+</', '><', ob_get_clean())); ?>";
+        });
     }
 
     protected function loadElements()
